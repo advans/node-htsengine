@@ -17,7 +17,7 @@ HTSEngineNode::HTSEngineNode ()
     fprintf(stderr, "HTSEngineNode::HTSEngineNode\n");
 #endif
     //num_voices = 0;
-
+    phonemeAlignment = false;
     unvoicedThreshold = 0.5;
     additionalHalfTone = 0;
     speechSpeedRate = 1;
@@ -464,7 +464,7 @@ NAN_GETTER(HTSEngineNode::GetPhonemeAlignment)
     fprintf(stderr, "HTSEngineNode::GetPhonemeAlignment\n");
 #endif
     HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
-    NanReturnValue(Boolean::New(context->additionalHalfTone));
+    NanReturnValue(Boolean::New(context->phonemeAlignment));
 }
 NAN_SETTER(HTSEngineNode::SetPhonemeAlignment)
 {
@@ -475,7 +475,9 @@ NAN_SETTER(HTSEngineNode::SetPhonemeAlignment)
     if (value->IsBoolean())
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
-        context->additionalHalfTone = value->ToBoolean()->Value();
+        context->phonemeAlignment = value->ToBoolean()->Value();
+    } else {
+        NanThrowError("phonemeAlignment is Boolean.");
     }
 }
 // samplingFrequency getter setter
@@ -499,6 +501,8 @@ NAN_SETTER(HTSEngineNode::SetSamplingFrequency)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->samplingFrequency = value->ToInt32()->Value();
+    } else {
+        NanThrowError("samplingFrequency is Int32.");
     }
 };
 // framePeriod getter setter
@@ -521,6 +525,8 @@ NAN_SETTER(HTSEngineNode::SetFramePeriod)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->framePeriod = value->ToInt32()->Value();
+    } else {
+        NanThrowError("framePeriod is Int32.");
     }
 };
 // allPassConstant getter setter
@@ -543,6 +549,8 @@ NAN_SETTER(HTSEngineNode::SetAllPassConstant)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->allPassConstant = value->ToNumber()->Value();
+    } else {
+        NanThrowError("allPassConstant is Number.");
     }
 };
 // postFilteringCoefficient getter setter
@@ -565,6 +573,8 @@ NAN_SETTER(HTSEngineNode::SetPostFilteringCoefficient)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->postFilteringCoefficient = value->ToNumber()->Value();
+    } else {
+        NanThrowError("postFilteringCoefficient is Number.");
     }
 };
 // speechSpeedRate getter setter
@@ -587,6 +597,8 @@ NAN_SETTER(HTSEngineNode::SetSpeechSpeedRate)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->speechSpeedRate = value->ToNumber()->Value();
+    } else {
+        NanThrowError("speechSpeedRate is Number.");
     }
 };
 // additionalHalfTone getter setter
@@ -609,6 +621,8 @@ NAN_SETTER(HTSEngineNode::SetAdditionalHalfTone)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->additionalHalfTone = value->ToNumber()->Value();
+    } else {
+        NanThrowError("additionalHalfTone is Number.");
     }
 };
 // unvoicedThreshold getter setter
@@ -631,6 +645,8 @@ NAN_SETTER(HTSEngineNode::SetUnvoicedThreshold)
     {
         HTSEngineNode *context = ObjectWrap::Unwrap<HTSEngineNode>(args.This());
         context->unvoicedThreshold = value->ToNumber()->Value();
+    } else {
+        NanThrowError("unvoicedThreshold is Number.");
     }
 };
 // interpolation getter setter
@@ -674,6 +690,8 @@ NAN_SETTER(HTSEngineNode::SetInterpolation)
                 context->interpolation[ret->first] = valueNumber->Value();
             }
         }
+    } else {
+        NanThrowError("interpolation is Object.");
     }
 };
 
