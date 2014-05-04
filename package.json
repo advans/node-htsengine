@@ -1,0 +1,28 @@
+{
+  "name": "htsengine",
+  "version": "0.0.1",
+  "description": "node.js for hts_engine API",
+  "dependencies": {
+    "nan": "~0.8.0",
+    "mocha": "~1.18.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec test"
+  },
+  "keywords": [
+    "tts",
+    "hts_engine API"
+  ],
+  "author": "Nori <advansg@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/advans/node-htsengine.git"
+  },
+  "homepage": "https://github.com/advans/node-htsengine",
+  "bugs": {
+    "url": "https://github.com/advans/node-htsengine/issues"
+  },
+  "license": "BSD-2-Clause",
+  "gypfile": true
+}
