@@ -1,6 +1,6 @@
 {
   "name": "htsengine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "node.js for hts_engine API",
   "dependencies": {
     "nan": "~0.8.0",

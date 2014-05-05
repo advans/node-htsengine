@@ -15,8 +15,7 @@ var en = {
 	'default': path.join(__dirname, '/voice/cmu_us_arctic_slt.htsvoice')
 };
 var voice = {
-	'en': en,
-	'ja': ja
+	'en': en
 };
 
 module.exports.voices = voice;
