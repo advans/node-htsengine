@@ -105,5 +105,7 @@ public:
     void HandleOKCallback ();
 private:
     HTS_Engine engine;
+    size_t num_lines;
+    char **lines;
     v8::Handle<v8::Array> labelArray;
 };
